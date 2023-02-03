@@ -11,3 +11,4 @@ arr = np.array([mylist1, mylist2, mylist3])
 print(arr[1:3, 2:4])  # used for traversing
 arr = np.arange(0, 11, 3)
 print(arr)
+print(arr[arr > 2])
