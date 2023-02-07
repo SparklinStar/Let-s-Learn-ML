@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from io import StringIO, BytesIO
+import json
 
 # playing with dataframe
 df = pd.DataFrame(np.arange(0, 20).reshape(5, 4), index=['Row1', 'Row2', 'Row3', 'Row4', 'Row5'], columns=[
@@ -37,3 +38,11 @@ print(pd.read_csv(StringIO(data), index_col=3))
 data = ('a,b,c\n' '4,laptop,bat,5.7\n' '8,keyboard,cow,10')
 print(pd.read_csv(StringIO(data), index_col=3, escapechar='k'))
 #   using escapechar skips specific character in the data frame
+
+# Read Json using pandas
+
+Data = '{"employee_name": {"0":"James"}, "email": {"0":"james@gmail.com"}}'
+print(pd.read_json(Data))
+
+# I successfully created json using python and displayed using pandas. one thing to note a json is always nested because when
+# I tried to read this Data = '{"employee_name": "James", "email": "james@gmail.com", "job_profile": [{"title1":"Team Lead", "title2":"Sr. Developer"}]}' while omitting the nested part it was showing me a error
