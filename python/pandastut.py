@@ -43,6 +43,19 @@ print(pd.read_csv(StringIO(data), index_col=3, escapechar='k'))
 
 Data = '{"employee_name": {"0":"James"}, "email": {"0":"james@gmail.com"}}'
 print(pd.read_json(Data))
-
+df1 = pd.read_json(Data)
 # I successfully created json using python and displayed using pandas. one thing to note a json is always nested because when
 # I tried to read this Data = '{"employee_name": "James", "email": "james@gmail.com", "job_profile": [{"title1":"Team Lead", "title2":"Sr. Developer"}]}' while omitting the nested part it was showing me a error
+print(df1.to_json())
+print(df1.to_json(orient="records"))  # it is created record by record
+
+# json done
+
+# Reading HTML
+
+url = 'https://en.wikipedia.org/wiki/Minnesota'
+dfs = pd.read_html(
+    url, match='United States presidential election results for Minnesota')
+print(dfs[0])
+
+# reading html is self explanatory
