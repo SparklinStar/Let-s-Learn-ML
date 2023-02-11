@@ -25,7 +25,7 @@ print(df.describe())
 # when the separation is ;
 # retrieving only column1 and column2 from csv
 # where column1 is in int and column2 is in float
-
+# comment addded 
 df1 = pd.read_csv('test.csv', sep=';', usecols=['column1', 'column2'], dtype={
                   'column1': int, 'column2': float})
 print(df1.head())
